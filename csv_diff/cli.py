@@ -19,9 +19,9 @@ from . import load_csv, compare, human_text
 )
 @click.option(
     "--format",
-    type=click.Choice(["csv", "tsv"]),
+    type=click.Choice(["csv", "tsv", "psv"]),
     default=None,
-    help="Explicitly specify input format (csv, tsv) instead of auto-detecting",
+    help="Explicitly specify input format (csv, tsv, psv) instead of auto-detecting",
 )
 @click.option(
     "--json", type=bool, default=False, help="Output changes as JSON", is_flag=True
