@@ -1,3 +1,4 @@
+import csv
 import click
 import json as std_json
 from . import load_csv, compare, human_text
@@ -44,9 +45,12 @@ from . import load_csv, compare, human_text
 )
 def cli(previous, current, key, format, json, singular, plural, show_unchanged):
     "Diff two CSV files"
+
+    csv.register_dialect('excel-pipe', delimiter='|', quoting=csv.QUOTE_NONE)
     dialect = {
         "csv": "excel",
         "tsv": "excel-tab",
+        "psv": "excel-pipe"
     }
 
     def load(filename):
